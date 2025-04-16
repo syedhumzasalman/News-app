@@ -1,6 +1,6 @@
 # 🌍✨ NewsWave — Your Daily Dose of News, Simplified!
 
-![News App Banner](https://via.placeholder.com/1200x400.png?text=NewsWave+App) <!-- You can replace this with your actual banner -->
+![News App Banner](https://www.canva.com/design/DAGk1WKQK-4/Q_qr96p0PU_hsfPGm7gQ0A/edit?ui=eyJEIjp7IlEiOnsiQSI6dHJ1ZX19LCJBIjp7fX0) <!-- You can replace this with your actual banner -->
 
 ---
 
