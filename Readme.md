@@ -1,6 +1,6 @@
 # 🌍✨ NewsWave — Your Daily Dose of News, Simplified!
 
-![News App Banner](./videos/Blue%20Modern%20Breaking%20News%20Video.mp4) <!-- You can replace this with your actual banner -->
+![News App Banner](./images/banner%20image.png) <!-- You can replace this with your actual banner -->
 
 ---
 
