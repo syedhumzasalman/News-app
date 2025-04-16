@@ -14,8 +14,8 @@ As the team leader, Humza was responsible for overall project management, UI/UX 
 ### 🔹 Aman (Frontend Developer)
 Aman worked on the core frontend structure of the app. He implemented navigation, news listing, and the responsive layout using modern web technologies. His work helped bring the design to life.
 
-### 🔹 Shehary (Backend Developer)
-Shehary handled the backend logic. He was responsible for fetching news articles from external APIs and managing data flow. His focus was on making sure users always receive the latest news instantly.
+### 🔹 Sheharyar (Frontend Developer)
+Shehary handled the logic. He was responsible for fetching news articles from external APIs and managing data flow. His focus was on making sure users always receive the latest news instantly.
 
 ### 🔹 Farman (Testing & Deployment)
 Farman ensured the app was bug-free and working perfectly across different devices. He also managed deployment and version control, making the app production-ready and smooth to use.
@@ -59,4 +59,4 @@ We thank all the team members for their hard work and dedication. This project w
 
 ---
 
-**Made with ❤️ by Humza, Aman, Shehary, and Farman**
+**Made with ❤️ by Humza, Aman, Sheharyar, and Farman**
