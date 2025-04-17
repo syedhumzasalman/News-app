@@ -1,0 +1,187 @@
+/* 1. Body Styling */
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f4f8;
+    color: #333;
+  }
+  
+  /* 2. Header Styling */
+  
+  .header {
+    background-color: #825cff;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+  }
+  
+  /* 3. Search Bar Styling */
+  .search-bar {
+    display: flex;
+    justify-content: center;
+    margin: 1rem auto;
+    gap: 0.5rem;
+    max-width: 800px;
+  }
+  
+  .search-bar input {
+    font-family: 'Poppins', sans-serif;
+    flex: 1;
+    padding: 0.7rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  .search-bar button {
+    font-family: 'Poppins', sans-serif;
+    padding: 0.7rem 1rem;
+    background-color: #cc2119;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .search-bar button:hover {
+    background-color: #a31a14;
+  }
+  
+  /* 4. Categories Styling */
+  .categories {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1rem auto;
+    flex-wrap: wrap;
+  }
+  
+  .categories button {
+    font-family: 'Poppins', sans-serif;
+    padding: 0.7rem 1.2rem;
+    background-color: #825cff;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .categories button:hover {
+    background-color: #693bcc;
+  }
+  
+  /* 5. News Container Styling */
+  .news-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    align-items: center;
+  }
+  
+  /* main card styling*/
+  .main-card {
+    padding-bottom: 20px;
+  }
+  
+  /* 6. News Card Styling */
+  .news-card {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  }
+  
+  .news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .news-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+  
+  .news-card .content {
+    padding: 1rem;
+  }
+  
+  .news-card h2 {
+    margin: 0 0 0.5rem;
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  .news-card p {
+    margin: 0 0 1rem;
+    color: #666;
+    font-size: 0.9rem;
+  }
+  
+  .news-card a {
+    text-decoration: none;
+    color: #cc2119;
+    font-weight: bold;
+  }
+  
+  .news-card a:hover {
+    text-decoration: underline;
+  }
+  
+  .news- {
+    width: 20vw;
+    height: 20vh;
+    background-color: #693bcc;
+  }
+  
+  .img-div {
+    height: 45vh;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .img-div>img {
+    height: 100%;
+  
+    width: 100%;
+  }
+  
+  /* button styling*/
+  .view-button {
+    position: relative;
+    text-decoration: none;
+    background-color: #cb202d;
+    color: #ffffff;
+    width: 9em;
+    text-align: center;
+    padding: 0.3em 0.2em;
+    border-radius: 5px;
+  }
+  
+  .next-btn {
+    width: 100%;
+  }
+  
+  /* button */
+  
+  
+  
+  
+  
+  
