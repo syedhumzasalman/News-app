@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+    
 
 <head>
     <meta charset="UTF-8">
@@ -15,6 +16,58 @@
 </head>
 
 <body class="bg-light">
+    <!-- Date & Time -->
+    <div class="bg-body-secondary d-flex justify-content-start gap-5 ps-5">
+        <div id="currentTime"></div>
+        <div id="currentDay"></div>
+    </div>
+
+
+<!-- ***************************** -->
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom position-sticky z-1 w-100 top-0">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="https://wallpapers.com/images/hd/news-wave-logo-design-da7v6avu76zphdme.jpg" width="100"
+                    height="100" alt="APP Logo" class="me-2 img-fluid">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">HOME</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">NATIONAL</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">INTERNATIONAL</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">EXCLUSIVE VIDEOS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">REGIONAL</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">SPORTS</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">OTHERS</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Opinion</a></li>
+                            <li><a class="dropdown-item" href="#">Health</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-search"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+<!-- ***************************** -->
+
+    <!-- News Ticker -->
+    <div class="d-flex align-items-center news-ticker">
+        <div class="latest-label z-1">TODAY'S LATEST</div>
+        <marquee id="articleNews" class="ms-3 text-truncate"></marquee>
+    </div>
+
+
 
 
 
