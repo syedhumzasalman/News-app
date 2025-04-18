@@ -1,5 +1,7 @@
 # 🌍✨ NewsWave — Your Daily Dose of News, Simplified!
 
+Visit our NewsApp **NewsWave** https://news-app-team-h-a-s-f.netlify.app/
+
 ![News App Banner](./images/banner%20image.png) <!-- You can replace this with your actual banner -->
 
 ---
