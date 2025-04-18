@@ -1,89 +1,68 @@
-let currentQuery = "world"
-let nextPage = 1
+let currentQuery = "world";
+let nextPage = 1;
+const apiKey = '27b2ec7802234d1611499996af4ebb25'; // <-- your GNews.io API key
+
 const newsapi = async (page, q) => {
-  // console.log(`featching news for ${q}, page number ${page}`);
+  let url = `https://gnews.io/api/v4/search?q=${q}&lang=en&max=9&page=${page}&token=${apiKey}`;
 
-  let url = 'https://newsapi.org/v2/everything?' +
-    'q=' + q +
-    '&from=2025-04-16&' +
-    'pageSize=11&' +
-    'language=en&' +
-    'page=' + page +
-    '&sortBy=popularity&' +
-    'apiKey=4a9de8d3cf794e499a9e09fa6553ddc2';
+  try {
+    let data = await fetch(url);
+    if (!data.ok) throw new Error(`Error: ${data.status}`);
+    let response = await data.json();
 
-  let data = await fetch(url);
-  let response = await data.json();
-  // console.log(response);
+    dispalyNews(response.articles);
+  } catch (err) {
+    console.error("Fetch error:", err);
+    document.getElementById("newsContainer").innerHTML = `
+      <p class="text-danger text-center">Sorry! News could not be loaded. Try again later.</p>`;
+  }
+};
 
-  dispalyNews(response.articles)
-}
-newsapi(1, currentQuery)
+newsapi(1, currentQuery);
 
 function handleSearch() {
-  let query = document.getElementById('search').value
-  currentQuery = query
-  newsapi(1, query)
+  let query = document.getElementById('search').value;
+  currentQuery = query;
+  nextPage = 1;
+  newsapi(1, query);
 }
+
 function previous() {
-  let query = document.getElementById('search').value
   if (nextPage > 1) {
-    nextPage = nextPage - 1
-    // currentQuery = query
-    newsapi(nextPage, currentQuery)
+    nextPage--;
+    newsapi(nextPage, currentQuery);
   }
 }
+
 function next() {
-  let query = document.getElementById('search').value
-  nextPage = nextPage + 1
-  // currentQuery = query
-  newsapi(nextPage, currentQuery)
+  nextPage++;
+  newsapi(nextPage, currentQuery);
 }
 
 const dispalyNews = (articles) => {
-  const container = document.getElementById('newsContainer')
-  container.innerHTML = ""
+  const container = document.getElementById('newsContainer');
+  container.innerHTML = "";
+
   articles?.forEach(article => {
     const card = `<div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-          <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden">
-            <img src="${article.urlToImage}" class="card-img-top " alt="News Image">
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">${article.title}</h5>
-              <p class="card-text text-muted">${article.description || "No description available."}</p>
-              <div class="mt-auto">
-                <p class="mb-1"><strong>Author:</strong> ${article.author || "Unknown"}</p>
-                <a href="${article.url}" target="_blank" class="view-button">Read more</a>
-              </div>
+        <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden">
+          <img src="${article.image}" class="card-img-top" alt="News Image">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">${article.title}</h5>
+            <p class="card-text text-muted">${article.description || "No description available."}</p>
+            <div class="mt-auto">
+              <p class="mb-1"><strong>Source:</strong> ${article.source.name || "Unknown"}</p>
+              <a href="${article.url}" target="_blank" class="view-button">Read more</a>
             </div>
           </div>
-        </div>`;
+        </div>
+      </div>`;
     container.innerHTML += card;
+  });
+};
 
-  })
-}
-
-const filterNews=(general) =>{
-  currentQuery = general
-  newsapi(1, currentQuery)
-  
-}
-const sports=(sports) =>{
-  currentQuery = sports
-  newsapi(1, currentQuery)
-  
-}
-const technology=(technology) =>{
-  currentQuery = technology
-  newsapi(1, currentQuery)
-  
-}
-const cripto = (crypto) =>{
-  currentQuery = crypto
-  newsapi(1, currentQuery)
-  
-}
-const entertainment=(entertainment) =>{
-  currentQuery = entertainment
-  newsapi(1, currentQuery)
-  
-}
+const filterNews = (category) => {
+  currentQuery = category;
+  nextPage = 1;
+  newsapi(1, currentQuery);
+};

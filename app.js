@@ -10,70 +10,74 @@ currentDay.innerHTML = moment().format('LL');
 // *****************************************************************************************************
 // this API is integrate for  News Ticker section for lateast News
 
-const apiKey = '8260190a11cd4340abaf3662f0bbfbef';
-const url = `https://newsapi.org/v2/top-headlines?country=us&pageSize=6&apiKey=${apiKey}`;
-let articleNews = document.getElementById("articleNews")
+function newsTicket() {
+  const apiKey = '27b2ec7802234d1611499996af4ebb25';
+  const url = `https://gnews.io/api/v4/top-headlines?lang=en&token=${apiKey}`;
+  let articleNews = document.getElementById("articleNews")
 
-fetch(url)
-.then((res)=> res.json())
-.then((data) => {
-    // console.log(data.articles[0]);
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => {
+      // console.log(data.articles[0]);
 
-    let lateastNews = data.articles
+      let lateastNews = data.articles
 
-    lateastNews.map((art) =>{
+      lateastNews.map((art) => {
         if (art.description) {
-            articleNews.innerHTML += `🔹 ${art.description} `;
-          }
-    })
+          articleNews.innerHTML += `🔹 ${art.description} `;
+        }
+      })
 
-}).catch((err)=>{
-    console.log(err);
-})
+    }).catch((err) => {
+      console.log(err);
+    })
+}
 
 // *****************************************************************************************************
 //
 
-const apiKey1 = '8260190a11cd4340abaf3662f0bbfbef';
-const url1 = `https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=${apiKey1}`;
 
-fetch(url1)
-.then((res) => res.json())
-.then((data) => {
-    // console.log(data.articles);
+  let apiKey1 = '27b2ec7802234d1611499996af4ebb25';
+  let url1 = `https://gnews.io/api/v4/search?q=bbc&lang=en&token=${apiKey1}`;
 
-    let artticle = data.articles
-    let cardNews = document.getElementById("cardNews")
+  fetch(url1)
+    .then((res) => res.json())
+    .then((data) => {
+      let articles = data.articles;
+      let cardNews = document.getElementById("cardNews");
 
-    artticle.map(result => {
-        // console.log(result.urlToImage);
-
-        cardNews.innerHTML += `<div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+      if (articles && articles.length > 0) {
+        articles.map(result => {
+          cardNews.innerHTML += `
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
           <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden">
-            <img src="${result.urlToImage}" class="card-img-top" alt="News Image">
+            <img src="${result.image}" class="card-img-top" alt="News Image">
             <div class="card-body d-flex flex-column">
               <h5 class="card-title">${result.title}</h5>
               <p class="card-text text-muted">${result.description || "No description available."}</p>
               <div class="mt-auto">
-                <p class="mb-1"><strong>Author:</strong> ${result.author || "Unknown"}</p>
+                <p class="mb-1"><strong>Source:</strong> ${result.source.name || "Unknown"}</p>
                 <p class="text-muted"><small><i class="bi bi-clock"></i> ${new Date(result.publishedAt).toLocaleString()}</small></p>
               </div>
             </div>
           </div>
-        </div>`
-        
+        </div>`;
+        });
+      } else {
+        cardNews.innerHTML = "<p>No news articles found.</p>";
+      }
     })
-    
-    
-})
-.catch((err) => console.error("Error:", err));
+    .catch((err) => console.error("Error:", err));
+
+
+
 
 
 // *****************************************************************************************************
 
 
 async function getNews(category) {
-  const url = `https://gnews.io/api/v4/top-headlines?category=${category}&lang=en&country=pk&max=6&apikey=99f67be34756a90cb389070332617b08`;
+  const url = `https://gnews.io/api/v4/top-headlines?category=${category}&lang=en&country=pk&max=6&apikey=27b2ec7802234d1611499996af4ebb25`;
   cardNews.innerHTML = '<p>Loading...</p>';
 
 
@@ -82,7 +86,7 @@ async function getNews(category) {
     const data = await res.json();
 
     // console.log(data);
-    
+
 
     if (data.articles) {
       cardNews.innerHTML = '';
@@ -102,11 +106,11 @@ async function getNews(category) {
           </div>
         </div>`
       });
-      }else {
-          cardNews.innerHTML = '<p>No news found.</p>';
-        }
-      } catch (error) {
-        console.error(error);
-        cardNews.innerHTML = '<p>Error fetching news.</p>';
-      }
+    } else {
+      cardNews.innerHTML = '<p>No news found.</p>';
     }
+  } catch (error) {
+    console.error(error);
+    cardNews.innerHTML = '<p>Error fetching news.</p>';
+  }
+}
