@@ -3,7 +3,7 @@ let nextPage = 1;
 const apiKey = '27b2ec7802234d1611499996af4ebb25';
 
 const newsapi = async (page, q) => {
-  let url = `https://gnews.io/api/v4/search?q=${q}&lang=en&max=9&page=${page}&token=${apiKey}`;
+  let url = `https://gnews.io/api/v4/search?q=${q}&lang=en&max=10&page=${page}&token=${apiKey}`;
 
   try {
     let data = await fetch(url);
