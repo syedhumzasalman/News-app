@@ -1,7 +1,7 @@
 let currentQuery = "world"
 let nextPage = 1
 const newsapi = async (page, q) => {
-  console.log(`featching news for ${q}, page number ${page}`);
+  // console.log(`featching news for ${q}, page number ${page}`);
 
   let url = 'https://newsapi.org/v2/everything?' +
     'q=' + q +
@@ -14,7 +14,7 @@ const newsapi = async (page, q) => {
 
   let data = await fetch(url);
   let response = await data.json();
-  console.log(response);
+  // console.log(response);
 
   dispalyNews(response.articles)
 }
@@ -44,15 +44,18 @@ const dispalyNews = (articles) => {
   const container = document.getElementById('newsContainer')
   container.innerHTML = ""
   articles?.forEach(article => {
-    const card = `<div style="border:1px solid #ccc; padding:10px; margin:10px;">
-      <div class="img-div"><img src="${article.urlToImage}" alt="sorry image not availble " srcset=""></div>
-          <h3>${article.title}</h3>
-        <p>${article.description || 'No description available.'}</p>
-
-        <h6> ${article.author || 'No description available.'}</h6></span>
-        
-        <h6>${article.author || 'No description available.'}</h6>
-          <a href="${article.url}" target="_blank" class="view-button">Read more</a>
+    const card = `<div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+          <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden">
+            <img src="${article.urlToImage}" class="card-img-top " alt="News Image">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">${article.title}</h5>
+              <p class="card-text text-muted">${article.description || "No description available."}</p>
+              <div class="mt-auto">
+                <p class="mb-1"><strong>Author:</strong> ${article.author || "Unknown"}</p>
+                <a href="${article.url}" target="_blank" class="view-button">Read more</a>
+              </div>
+            </div>
+          </div>
         </div>`;
     container.innerHTML += card;
 

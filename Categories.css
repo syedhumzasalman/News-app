@@ -11,20 +11,16 @@ body {
   /* 2. Header Styling */
   
   .header {
-    background-color: #825cff;
+    background-color: black;
     color: #fff;
     text-align: center;
-    padding: 1rem;
+    padding: .4rem;
     position: sticky;
     top: 0;
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
-  
-  .header h1 {
-    margin: 0;
-    font-size: 1.8rem;
-  }
+
   
   /* 3. Search Bar Styling */
   .search-bar {
@@ -47,7 +43,7 @@ body {
   .search-bar button {
     font-family: 'Poppins', sans-serif;
     padding: 0.7rem 1rem;
-    background-color: #cc2119;
+    background-color: #dc3545;
     color: white;
     border: none;
     border-radius: 5px;
@@ -57,7 +53,7 @@ body {
   }
   
   .search-bar button:hover {
-    background-color: #a31a14;
+    background-color: #dc3545;
   }
   
   /* 4. Categories Styling */
@@ -72,7 +68,7 @@ body {
   .categories button {
     font-family: 'Poppins', sans-serif;
     padding: 0.7rem 1.2rem;
-    background-color: #825cff;
+    background-color: #dc3545;
     color: white;
     border: none;
     border-radius: 20px;
@@ -82,7 +78,7 @@ body {
   }
   
   .categories button:hover {
-    background-color: #693bcc;
+    background-color: black;
   }
   
   /* 5. News Container Styling */
@@ -166,8 +162,8 @@ body {
   .view-button {
     position: relative;
     text-decoration: none;
-    background-color: #cb202d;
-    color: #ffffff;
+    color: black;
+    text-decoration: underline;
     width: 9em;
     text-align: center;
     padding: 0.3em 0.2em;

@@ -67,3 +67,46 @@ fetch(url1)
     
 })
 .catch((err) => console.error("Error:", err));
+
+
+// *****************************************************************************************************
+
+
+async function getNews(category) {
+  const url = `https://gnews.io/api/v4/top-headlines?category=${category}&lang=en&country=pk&max=6&apikey=99f67be34756a90cb389070332617b08`;
+  cardNews.innerHTML = '<p>Loading...</p>';
+
+
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
+
+    // console.log(data);
+    
+
+    if (data.articles) {
+      cardNews.innerHTML = '';
+      data.articles.forEach(article => {
+
+        cardNews.innerHTML += `<div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+          <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden">
+            <img src="${article.image}" class="card-img-top " alt="News Image">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">${article.title}</h5>
+              <p class="card-text text-muted">${article.description || "No description available."}</p>
+              <div class="mt-auto">
+                <p class="mb-1"><strong>Author:</strong> ${article.author || "Unknown"}</p>
+                <p class="text-muted"><small><i class="bi bi-clock"></i> ${new Date(article.publishedAt).toLocaleString()}</small></p>
+              </div>
+            </div>
+          </div>
+        </div>`
+      });
+      }else {
+          cardNews.innerHTML = '<p>No news found.</p>';
+        }
+      } catch (error) {
+        console.error(error);
+        cardNews.innerHTML = '<p>Error fetching news.</p>';
+      }
+    }
