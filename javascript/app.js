@@ -70,7 +70,9 @@ fetch(url1)
             <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
               <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden">
                 <div class="card-img-container">
-                  <img src="${result.image}" class="card-img-top news-image" alt="News Image">
+                  <img src="${result.image  || './images/alt-image.jpg'}"
+                   onerror="this.onerror=null;this.src='./images/alt-image.jpg';"
+                   class="card-img-top news-image" alt="News Image">
                 </div>
                 <div class="card-body d-flex flex-column">
                   <h5 class="card-title">${result.title}</h5>
