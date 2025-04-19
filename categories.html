@@ -11,21 +11,41 @@
 </head>
 
 <body>
-  <div class="header">
-    <a href="index.html"><img src="https://wallpapers.com/images/hd/news-wave-logo-design-da7v6avu76zphdme.jpg" alt="logo" height="80" ></a>
-  </div>
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-dark navbar-custom position-sticky z-1 w-100 top-0">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="https://wallpapers.com/images/hd/news-wave-logo-design-da7v6avu76zphdme.jpg" width="100"
+                    height="100" alt="APP Logo" class="me-2 img-fluid">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse ms-5" id="navbarNavDropdown">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">HOME</a></li>
+                    <li class="nav-item" onclick="filterNews('general')"><a class="nav-link" href="#">GENERAL</a></li>
+                    <li class="nav-item" onclick="filterNews('sports')"><a class="nav-link" href="#">SPORT</a></li>
+                    <li class="nav-item" onclick="filterNews('technology')"><a class="nav-link" href="#">TECHNOLOGY</a></li>
+                    <li class="nav-item" onclick="filterNews('crypto')"><a class="nav-link" href="#">CRYPTO</a></li>
+                    <li class="nav-item" onclick="filterNews('entertaiment')"><a class="nav-link" href="#">ENTERTAIMENT</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+
+
+
   <div class="search-bar">
     <input type="text" id="search" placeholder="Search news...">
     <button onclick="handleSearch()">Search</button>
   </div>
 
-  <div class="categories">
-    <button onclick="filterNews('general')">General</button>
-    <button onclick="filterNews('sports')">Sports</button>
-    <button onclick="filterNews('technology')">Technology</button>
-    <button onclick="filterNews('crypto')">crypto</button>
-    <button onclick="filterNews('entertainment')">Entertainment</button>
-  </div>
   <div class="news-container d-flex justify-content-around  main-cont " id="news-container">
     
 
@@ -35,12 +55,6 @@
   
           </div>
       </div>
-        <div class="row mt-4">
-          <div class="col text-center ">
-            <button onclick="previous()" class="btn btn-outline-primary me-2">&lt; Previous Page</button>
-            <button onclick="next()" class="btn btn-outline-primary">Next Page &gt;</button>
-          </div>
-        </div>
       </div>
 
     </div>
@@ -51,7 +65,7 @@
      
 
 
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"

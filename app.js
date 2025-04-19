@@ -7,39 +7,54 @@ let currentDay = document.getElementById("currentDay")
 currentTime.innerHTML = moment().format('LTS');
 currentDay.innerHTML = moment().format('LL');
 
+
+// *****************************************************************************************************
+// API Key
+const apiKey = ["725c5e130468a69442246669538c3080", "27b2ec7802234d1611499996af4ebb25", "99f67be34756a90cb389070332617b08"];
+
+let apiIndex =  Math.floor(Math.random() * apiKey.length);
+let finalApi = apiKey[apiIndex]
+
+
+ 
+
+
 // *****************************************************************************************************
 // this API is integrate for  News Ticker section for lateast News
 
-function newsTicket() {
-  const apiKey = '27b2ec7802234d1611499996af4ebb25';
-  const url = `https://gnews.io/api/v4/top-headlines?lang=en&token=${apiKey}`;
+
+  
+  function newsTick() {
+    const url = `https://jsonplaceholder.typicode.com/posts`;
   let articleNews = document.getElementById("articleNews")
 
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
-      // console.log(data.articles[0]);
+      // console.log(data);
 
-      let lateastNews = data.articles
+      let lateastNews = data
 
       lateastNews.map((art) => {
-        if (art.description) {
-          articleNews.innerHTML += `🔹 ${art.description} `;
+        if (art.body) {
+          articleNews.innerHTML += `🔹 ${art.body} `;
         }
       })
 
     }).catch((err) => {
       console.log(err);
     })
-}
+  }
+
+  newsTick() 
 
 // *****************************************************************************************************
 //
 
 
 function callAPI() {
-  let apiKey1 = '27b2ec7802234d1611499996af4ebb25';
-let url1 = `https://gnews.io/api/v4/search?q=bbc&lang=en&token=${apiKey1}`;
+ 
+let url1 = `https://gnews.io/api/v4/search?q=bbc&lang=en&token=${finalApi}`;
 
 fetch(url1)
   .then((res) => res.json())
@@ -79,11 +94,12 @@ fetch(url1)
 
 
 
+
 // *****************************************************************************************************
 
 
 async function getNews(category) {
-  const url = `https://gnews.io/api/v4/top-headlines?category=${category}&lang=en&country=pk&max=10&apikey=27b2ec7802234d1611499996af4ebb25`;
+  let url = `https://gnews.io/api/v4/search?q=${category}&lang=en&max=10&token=${finalApi}`;
   cardNews.innerHTML = '<p>Loading...</p>';
 
 
@@ -102,13 +118,15 @@ async function getNews(category) {
   <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
     <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden">
       <div class="card-img-container">
-        <img src="${article.image || "https://media.proprofs.com/images/QM/user_images/1826446/New%20Project%20(50)(55).webp"}" class="card-img-top news-image" alt="News Image">
+        <img src="${article.image || './images/alt-image.jpg'}"
+        onerror="this.onerror=null;this.src='./images/alt-image.jpg';"
+        class="card-img-top news-image" alt="News Image">
       </div>
       <div class="card-body d-flex flex-column">
         <h5 class="card-title">${article.title}</h5>
         <p class="card-text text-muted">${article.description || "No description available."}</p>
         <div class="mt-auto">
-          <p class="mb-1"><strong>Author:</strong> ${article.author || "Unknown"}</p>
+          <p class="mb-1"><strong>Author:</strong> ${article.source.name || "Unknown"}</p>
           <p class="text-muted"><small><i class="bi bi-clock"></i> ${new Date(article.publishedAt).toLocaleString()}</small></p>
         </div>
       </div>

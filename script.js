@@ -1,9 +1,13 @@
 let currentQuery = "world";
-let nextPage = 1;
-const apiKey = '27b2ec7802234d1611499996af4ebb25';
+const apiKey = ["725c5e130468a69442246669538c3080", "27b2ec7802234d1611499996af4ebb25", 
+                "99f67be34756a90cb389070332617b08", "1370bb0b30ad917bf28f2e970875c27a", 
+                "1f60f07d4955c4dd6de0c069ce794378"];
 
-const newsapi = async (page, q) => {
-  let url = `https://gnews.io/api/v4/search?q=${q}&lang=en&max=10&page=${page}&token=${apiKey}`;
+let apiIndex = Math.floor(Math.random() * apiKey.length);
+let finalApi = apiKey[apiIndex]
+
+const newsapi = async (q) => {
+  let url = `https://gnews.io/api/v4/search?q=${q}&lang=en&max=10&token=${finalApi}`;
 
   try {
     let data = await fetch(url);
@@ -14,40 +18,42 @@ const newsapi = async (page, q) => {
   } catch (err) {
     console.error("Fetch error:", err);
     document.getElementById("newsContainer").innerHTML = `
-      <p class="text-danger text-center">Sorry! News could not be loaded. Try again later.</p>`;
+      <p class="text-danger text-center">Sorry! News could not be loaded because the API limit has been exceeded. Please try again later.</p>`;
   }
 };
 
-newsapi(1, currentQuery);
+newsapi(currentQuery);
 
 function handleSearch() {
-  let query = document.getElementById('search').value;
-  currentQuery = query;
-  nextPage = 1;
-  newsapi(1, query);
-}
+  let query = document.getElementById('search').value.trim();
 
-function previous() {
-  if (nextPage > 1) {
-    nextPage--;
-    newsapi(nextPage, currentQuery);
+  if (!/^[a-zA-Z\s]{3,}$/.test(query)) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Invalid Search!',
+      text: 'Please enter a valid word with at least 3 letters and no numbers or symbols.',
+      confirmButtonColor: '#d33',
+    });
+    return;
   }
+
+  currentQuery = query;
+  newsapi(query);
 }
 
-function next() {
-  nextPage++;
-  newsapi(nextPage, currentQuery);
-}
+
 
 const dispalyNews = (articles) => {
   const container = document.getElementById('newsContainer');
   container.innerHTML = "";
 
-  articles?.forEach(article => {
+  articles.forEach(article => {
     const card = `<div class="col-lg-4 col-md-6 col-sm-12 mb-4">
         <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden">
           <div class="card-img-container">
-            <img src="${article.image}" class="card-img-top img-fluid news-image" alt="News Image">
+            <img src="${article.image || './images/alt-image.jpg'}" 
+             onerror="this.onerror=null;this.src='./images/alt-image.jpg';"
+             class="card-img-top img-fluid news-image" alt="News Image">
           </div>
           <div class="card-body d-flex flex-column">
             <h5 class="card-title">${article.title}</h5>
@@ -61,10 +67,9 @@ const dispalyNews = (articles) => {
       </div>`;
     container.innerHTML += card;
   });
-}  
+}
 
 const filterNews = (category) => {
   currentQuery = category;
-  nextPage = 1;
-  newsapi(1, currentQuery);
+  newsapi(currentQuery);
 };

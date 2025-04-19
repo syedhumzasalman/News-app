@@ -1,25 +1,27 @@
 /* 1. Body Styling */
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Times New Roman', Times, serif;
     margin: 0;
     padding: 0;
     background-color: #f0f4f8;
     color: #333;
   }
   
-  /* 2. Header Styling */
+  /* 2. Navbar Styling */
   
-  .header {
-    background-color: black;
-    color: #fff;
-    text-align: center;
-    padding: .4rem;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
+  .navbar-custom {
+    background-color: #0c0c0c;
+}
+
+.navbar-brand span {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+li:hover {
+  background-color: #dc3545;
+}
 
   
   /* 3. Search Bar Styling */
@@ -32,16 +34,15 @@ body {
   }
   
   .search-bar input {
-    font-family: 'Poppins', sans-serif;
     flex: 1;
     padding: 0.7rem;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 1rem;
+    outline: none;
   }
   
   .search-bar button {
-    font-family: 'Poppins', sans-serif;
     padding: 0.7rem 1rem;
     background-color: #dc3545;
     color: white;
@@ -53,33 +54,9 @@ body {
   }
   
   .search-bar button:hover {
-    background-color: #dc3545;
-  }
-  
-  /* 4. Categories Styling */
-  .categories {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin: 1rem auto;
-    flex-wrap: wrap;
-  }
-  
-  .categories button {
-    font-family: 'Poppins', sans-serif;
-    padding: 0.7rem 1.2rem;
-    background-color: #dc3545;
-    color: white;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    transition: background-color 0.3s ease;
-  }
-  
-  .categories button:hover {
     background-color: black;
   }
+  
   
   /* 5. News Container Styling */
   .news-container {
