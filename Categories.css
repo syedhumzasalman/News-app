@@ -176,6 +176,38 @@ body {
   
   /* button */
   
+
+  .card:hover {
+    transform: translateY(-5px);
+    transition: all 0.3s ease-in-out;
+}
+
+.card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.boxShadow {
+    box-shadow: 5px 20px 20px black;
+    border: 1px solid black;
+}
+
+#cardNews h5{
+    color: BLACK;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.card-img-container {
+  height: 200px;
+  overflow: hidden;
+}
+
+.news-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
   
   
   

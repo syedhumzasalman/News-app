@@ -46,7 +46,9 @@ const dispalyNews = (articles) => {
   articles?.forEach(article => {
     const card = `<div class="col-lg-4 col-md-6 col-sm-12 mb-4">
         <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden">
-          <img src="${article.image}" class="card-img-top" alt="News Image">
+          <div class="card-img-container">
+            <img src="${article.image}" class="card-img-top img-fluid news-image" alt="News Image">
+          </div>
           <div class="card-body d-flex flex-column">
             <h5 class="card-title">${article.title}</h5>
             <p class="card-text text-muted">${article.description || "No description available."}</p>
@@ -59,7 +61,7 @@ const dispalyNews = (articles) => {
       </div>`;
     container.innerHTML += card;
   });
-};
+}  
 
 const filterNews = (category) => {
   currentQuery = category;
