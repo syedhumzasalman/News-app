@@ -10,7 +10,9 @@ currentDay.innerHTML = moment().format('LL');
 
 // *****************************************************************************************************
 // API Key
-const apiKey = ["725c5e130468a69442246669538c3080", "27b2ec7802234d1611499996af4ebb25", "99f67be34756a90cb389070332617b08"];
+const apiKey = ["725c5e130468a69442246669538c3080", "27b2ec7802234d1611499996af4ebb25", 
+                "99f67be34756a90cb389070332617b08", "1370bb0b30ad917bf28f2e970875c27a", 
+                "1f60f07d4955c4dd6de0c069ce794378"];
 
 let apiIndex =  Math.floor(Math.random() * apiKey.length);
 let finalApi = apiKey[apiIndex]
@@ -91,6 +93,7 @@ fetch(url1)
 
 }
 
+callAPI()
 
 
 
