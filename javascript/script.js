@@ -1,7 +1,8 @@
 let currentQuery = "world";
 const apiKey = ["725c5e130468a69442246669538c3080", "27b2ec7802234d1611499996af4ebb25", 
                 "99f67be34756a90cb389070332617b08", "1370bb0b30ad917bf28f2e970875c27a", 
-                "1f60f07d4955c4dd6de0c069ce794378"];
+                "1f60f07d4955c4dd6de0c069ce794378", "104c2b1060f67afb811b13bcdd5465ca",
+                "bd326d29d9a8f58956461f7129c27dad"];
 
 let apiIndex = Math.floor(Math.random() * apiKey.length);
 let finalApi = apiKey[apiIndex]
