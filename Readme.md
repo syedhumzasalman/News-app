@@ -2,7 +2,7 @@
 
 Visit our NewsApp **NewsWave** https://news-app-team-h-a-s-f.netlify.app/
 
-![News App Banner](./images/read-img.png.png)
+![News App Banner](./images/read-img.png)
 
 ---
 
