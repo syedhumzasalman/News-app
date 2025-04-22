@@ -52,7 +52,7 @@ let finalApi = apiKey[apiIndex]
 
 // *****************************************************************************************************
 //
-
+let cardNews = document.getElementById("cardNews");
 
 function callAPI() {
  
@@ -62,7 +62,6 @@ fetch(url1)
   .then((res) => res.json())
   .then((data) => {
     let articles = data.articles;
-    let cardNews = document.getElementById("cardNews");
 
     if (articles && articles.length > 0) {
       articles.map(result => {
